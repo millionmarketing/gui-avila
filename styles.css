@@ -659,8 +659,6 @@ details.curriculum li::before { content: counter(c, decimal-leading-zero); font:
 .vd-panel.is-active { opacity: 1; transform: none; pointer-events: auto; }
 .vd-panel h3 { font-size: clamp(22px, 2.4vw, 28px); line-height: 1.2; }
 .vd-panel p { color: var(--text-2); margin: 10px auto 0; max-width: 520px; }
-.vd-courses { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 18px; }
-.vd-courses span { padding: 7px 13px; border-radius: 999px; border: 1px solid var(--border-gold); background: rgba(245,185,66,.06); font: 500 11.5px/1 var(--font-m); letter-spacing: .06em; color: var(--gold-light); }
 @media (max-width: 768px) {
   .venn-detail { margin-top: 24px; }
   .vd-tab { padding: 10px 13px; font-size: 13px; gap: 6px; }
