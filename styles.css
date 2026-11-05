@@ -148,35 +148,24 @@ p { text-wrap: pretty; }
 .topbar {
   position: sticky; top: 0; z-index: 51; height: var(--topbar-h); overflow: hidden; isolation: isolate;
   display: flex; align-items: center; justify-content: center; padding: 0 16px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.015)),
-    radial-gradient(ellipse 40% 140% at 50% 0%, rgba(245,185,66,.16), transparent 70%),
-    rgba(8,7,6,.55);
-  backdrop-filter: blur(18px) saturate(170%); -webkit-backdrop-filter: blur(18px) saturate(170%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), inset 0 -1px 0 rgba(255,255,255,.04);
-}
-.topbar::after { /* fio dourado na base */
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(245,185,66,.65) 30%, rgba(255,225,161,.9) 50%, rgba(245,185,66,.65) 70%, transparent);
+  background: var(--gold);
 }
 .topbar::before { /* reflexo do vidro passando */
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.07) 50%, transparent 60%) -100% 0 / 200% 100% no-repeat;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.3) 50%, transparent 60%) -100% 0 / 200% 100% no-repeat;
   animation: glass 7s ease-in-out infinite;
 }
 @keyframes glass { 0%, 60% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
 .topbar__in { display: inline-flex; align-items: center; gap: 14px; white-space: nowrap; }
 .topbar__tag {
-  display: inline-flex; align-items: center; gap: 7px; padding: 5px 10px 5px 8px; border-radius: 999px;
-  background: var(--grad-gold); color: #0a0806;
+  display: inline-flex; align-items: center; gap: 7px; color: #0a0806;
   font: 700 12px/1 var(--font-m); letter-spacing: .14em; text-transform: uppercase;
-  box-shadow: 0 0 0 1px rgba(255,255,255,.25) inset, 0 0 18px rgba(245,185,66,.35);
 }
 .topbar__dot { width: 6px; height: 6px; border-radius: 50%; background: #0a0806; animation: blink 1.6s ease-in-out infinite; }
 @keyframes blink { 50% { opacity: .25; } }
-.topbar__txt { font: 600 12.5px/1 var(--font-b); letter-spacing: .08em; text-transform: uppercase; color: var(--text); }
-.topbar__sep { width: 1px; height: 14px; background: rgba(255,255,255,.18); }
-.topbar__sub { font: 500 12px/1 var(--font-m); letter-spacing: .1em; text-transform: uppercase; color: var(--text-2); }
+.topbar__txt { font: 600 12.5px/1 var(--font-b); letter-spacing: .08em; text-transform: uppercase; color: #0a0806; }
+.topbar__sep { width: 1px; height: 14px; background: rgba(10,8,6,.35); }
+.topbar__sub { font: 500 12px/1 var(--font-m); letter-spacing: .1em; text-transform: uppercase; color: #0a0806; }
 
 /* ---------- Header (vidro) ---------- */
 .header {
