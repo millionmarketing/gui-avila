@@ -747,7 +747,6 @@ details.curriculum li::before { content: counter(c, decimal-leading-zero); font:
   .method-grid .pillar .icon-box { width: 46px; height: 46px; }
   .method-grid .pillar h3 { font-size: 19px; }
   .method-grid .pillar.is-active { transform: none; }
-  .v-t { font-size: 18px; }
   .v-k { font-size: 14px; letter-spacing: 0; }
   .venn__caption { font-size: 12px; letter-spacing: .06em; }
 }
