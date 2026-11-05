@@ -293,6 +293,32 @@ p { text-wrap: pretty; }
 .turn { max-width: 820px; margin: 64px auto 0; text-align: center; }
 .turn h3 { font-size: clamp(26px, 3vw, 36px); }
 
+/* ---------- Conector tracejado (dor → 3 pilares) ---------- */
+.section--flow-out { padding-bottom: 0; }
+.section--flow-in { padding-top: 8px; }
+.flow-link { display: flex; justify-content: center; margin: 28px auto 0; height: clamp(150px, 16vw, 200px); }
+.flow-link svg { height: 100%; width: auto; overflow: visible; }
+.flow-link .fl-glow { fill: none; stroke: rgba(245,185,66,.08); stroke-width: 10; stroke-linecap: round; }
+.flow-link .fl-dash { fill: none; stroke: url(#flGrad); stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 1 9; filter: drop-shadow(0 0 4px rgba(245,185,66,.7)); animation: flFlow 1.2s linear infinite; }
+.flow-link .fl-draw { fill: none; stroke: #fff; stroke-width: 14; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.flow-link.in .fl-draw { transition: stroke-dashoffset 1.6s cubic-bezier(.65,0,.35,1) .35s; stroke-dashoffset: 0; }
+.flow-link .fl-start { fill: var(--gold); filter: drop-shadow(0 0 6px var(--gold)); }
+.flow-link .fl-start-ring { fill: none; stroke: var(--gold); stroke-width: 1.5; transform-box: fill-box; transform-origin: center; animation: flRing 2.2s ease-out infinite; }
+.flow-link .fl-comet { opacity: 0; transition: opacity .5s ease 1.9s; }
+.flow-link.in .fl-comet { opacity: 1; }
+.flow-link .fl-comet-halo { fill: rgba(245,185,66,.25); filter: blur(2px); }
+.flow-link .fl-comet-core { fill: #FFE1A1; filter: drop-shadow(0 0 6px #F5B942); }
+.flow-link .fl-arrow { fill: none; stroke: var(--gold); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; opacity: 0; transform: translateY(-8px); transition: opacity .5s ease 1.8s, transform .5s var(--ease) 1.8s; filter: drop-shadow(0 0 6px rgba(245,185,66,.7)); }
+.flow-link.in .fl-arrow { opacity: 1; transform: none; animation: flNudge 2.6s ease-in-out 2.4s infinite; }
+@keyframes flFlow { to { stroke-dashoffset: -10; } }
+@keyframes flRing { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(3.2); opacity: 0; } }
+@keyframes flNudge { 0%, 100% { transform: none; } 50% { transform: translateY(4px); } }
+@media (prefers-reduced-motion: reduce) {
+  .flow-link .fl-draw { stroke-dashoffset: 0; }
+  .flow-link .fl-comet { display: none; }
+  .flow-link .fl-arrow { opacity: 1; transform: none; }
+}
+
 /* ---------- Method (3 pillars) ---------- */
 .method { overflow: hidden; isolation: isolate; }
 .method::before {
