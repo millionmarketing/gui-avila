@@ -628,7 +628,8 @@ details.curriculum li::before { content: counter(c, decimal-leading-zero); font:
 /* =========================================================
    MÉTODO — 3 anéis que se interligam + cards em linha
    ========================================================= */
-.method-grid { --cycle: 3.6s; display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+.method-grid { --cycle: 3.6s; display: grid; grid-template-columns: 1fr; justify-items: center; }
+.method-grid .venn { width: 100%; max-width: 760px; margin: 0 auto; }
 
 /* Diagrama */
 .venn { position: relative; }
