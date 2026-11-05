@@ -626,10 +626,46 @@ details.curriculum li::before { content: counter(c, decimal-leading-zero); font:
 
 
 /* =========================================================
-   MÉTODO — 3 anéis que se interligam + cards em linha
+   MÉTODO — 3 anéis que se interligam + painel do pilar ativo
    ========================================================= */
 .method-grid { --cycle: 3.6s; display: grid; grid-template-columns: 1fr; justify-items: center; }
-.method-grid .venn { width: 100%; max-width: 760px; margin: 0 auto; }
+.method-grid .venn { width: 100%; max-width: 680px; margin: 0 auto; }
+.method-grid .venn::before { /* brilho atrás do núcleo */
+  content: ""; position: absolute; left: 50%; top: 50%; width: 70%; aspect-ratio: 1; transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(245,185,66,.16), transparent 65%); pointer-events: none; z-index: -1;
+}
+
+/* Painel do pilar ativo */
+.venn-detail { width: 100%; max-width: 640px; margin: 36px auto 0; text-align: center; }
+.vd-tabs { display: inline-flex; gap: 6px; padding: 6px; border-radius: 999px; border: 1px solid var(--border); background: rgba(14,13,11,.8); backdrop-filter: blur(8px); }
+.vd-tab {
+  position: relative; display: inline-flex; align-items: center; gap: 8px; overflow: hidden;
+  padding: 11px 20px; border: 0; border-radius: 999px; background: transparent; cursor: pointer;
+  font: 600 14px/1 var(--font-h); color: var(--text-2); transition: color .4s ease, background .4s ease, box-shadow .4s ease;
+}
+.vd-tab:hover { color: var(--text); }
+.vd-n { font: 500 11px/1 var(--font-m); letter-spacing: .1em; color: var(--gold); transition: color .4s ease; }
+.vd-tab.is-active { color: #0a0806; background: var(--grad-gold); box-shadow: 0 8px 28px -10px rgba(245,185,66,.7); }
+.vd-tab.is-active .vd-n { color: rgba(10,8,6,.65); }
+.vd-bar { position: absolute; left: 14px; right: 14px; bottom: 4px; height: 2px; border-radius: 2px; background: rgba(10,8,6,.18); opacity: 0; overflow: hidden; }
+.vd-bar::after { content: ""; position: absolute; inset: 0; background: rgba(10,8,6,.55); transform: scaleX(0); transform-origin: left; }
+.vd-tab.is-active .vd-bar { opacity: 1; }
+.vd-tab.is-active .vd-bar::after { animation: vdbar var(--cycle) linear forwards; }
+.method-grid.paused .vd-tab.is-active .vd-bar::after { animation: none; transform: scaleX(1); }
+@keyframes vdbar { to { transform: scaleX(1); } }
+
+.vd-panels { display: grid; margin-top: 26px; }
+.vd-panel { grid-area: 1 / 1; opacity: 0; transform: translateY(10px); pointer-events: none; transition: opacity .5s ease, transform .6s var(--ease); }
+.vd-panel.is-active { opacity: 1; transform: none; pointer-events: auto; }
+.vd-panel h3 { font-size: clamp(22px, 2.4vw, 28px); line-height: 1.2; }
+.vd-panel p { color: var(--text-2); margin: 10px auto 0; max-width: 520px; }
+.vd-courses { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 18px; }
+.vd-courses span { padding: 7px 13px; border-radius: 999px; border: 1px solid var(--border-gold); background: rgba(245,185,66,.06); font: 500 11.5px/1 var(--font-m); letter-spacing: .06em; color: var(--gold-light); }
+@media (max-width: 768px) {
+  .venn-detail { margin-top: 24px; }
+  .vd-tab { padding: 10px 13px; font-size: 13px; gap: 6px; }
+  .vd-n { display: none; }
+}
 
 /* Diagrama */
 .venn { position: relative; }

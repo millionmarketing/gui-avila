@@ -72,6 +72,7 @@ if (CONFIG.checkoutUrl) {
   if (!grid || !venn) return;
   const cards = [...grid.querySelectorAll("[data-pillar]")];
   const rings = [...venn.querySelectorAll("[data-ring]")];
+  const panels = [...grid.querySelectorAll(".vd-panel")];
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const CYCLE = 3600;
   let i = 0, timer = null, paused = false, visible = false;
@@ -79,7 +80,8 @@ if (CONFIG.checkoutUrl) {
   const set = (n) => {
     i = n;
     venn.dataset.active = n;
-    cards.forEach((c, j) => c.classList.toggle("is-active", j === n));
+    cards.forEach((c, j) => { c.classList.toggle("is-active", j === n); c.setAttribute("aria-pressed", j === n); });
+    panels.forEach((p, j) => p.classList.toggle("is-active", j === n));
   };
   const pulse = () => { venn.classList.remove("pulse"); void venn.getBoundingClientRect(); venn.classList.add("pulse"); };
   const schedule = () => {
