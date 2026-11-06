@@ -384,7 +384,7 @@ details.curriculum li::before { content: counter(c, decimal-leading-zero); font:
 /* ---------- Authority ---------- */
 .about-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 64px; align-items: center; }
 .about-photo { position: relative; border-radius: 26px; overflow: hidden; border: 1px solid var(--border-gold); box-shadow: 0 0 0 8px rgba(245,185,66,.04), 0 0 80px rgba(245,185,66,.12); }
-.about-photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 30% center; }
+.about-photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 57% center; }
 .about-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(5,5,5,.9)); }
 .about-photo img.about-sign { position: absolute; left: 24px; bottom: 22px; z-index: 2; width: 160px; aspect-ratio: auto; }
 .about h2 { margin: 20px 0 22px; }
@@ -586,6 +586,7 @@ details.curriculum li::before { content: counter(c, decimal-leading-zero); font:
   .btn, .btn-lg { height: 60px; font-size: 14.5px; padding: 0 18px; gap: 10px; }
   .mid-cta .btn { width: 100%; }
   .stat b { font-size: 23px; }
+  .about-photo img.about-sign { width: 116px; left: 16px; bottom: 14px; }
   .logo-row { gap: 24px 32px; }
   .logo-row img { height: 18px; }
   .stage img { aspect-ratio: 4/5; object-position: 55% center; }
