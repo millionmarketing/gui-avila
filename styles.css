@@ -362,8 +362,11 @@ p { text-wrap: pretty; }
 .product-body { padding: 36px 40px; display: flex; flex-direction: column; }
 .product-body .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
 .product-body h3 { font-size: 27px; }
-.price-tag { font: 500 12.5px/1 var(--font-m); color: var(--text-2); white-space: nowrap; padding: 8px 12px; border: 1px solid var(--border); border-radius: 999px; background: rgba(255,255,255,.02); }
-.price-tag s { color: var(--text); }
+.price-tag { display: flex; align-items: baseline; gap: 10px; margin-top: auto; padding-top: 22px; font: 500 14px/1 var(--font-m); color: var(--text-2); white-space: nowrap; }
+.price-tag s { font: 800 26px/1 var(--font-h); color: var(--text); text-decoration-color: var(--gold); text-decoration-thickness: 2px; }
+.product-body .checks { grid-template-columns: 1fr; }
+.product-note { margin-top: 18px; font: 500 13px/1.4 var(--font-m); color: var(--gold); }
+.product-note + .price-tag { margin-top: 0; padding-top: 12px; }
 .product-body .lead { color: var(--text-2); margin: 12px 0 22px; }
 .checks { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
 .checks li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; line-height: 1.45; }
