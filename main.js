@@ -130,18 +130,3 @@ if (CONFIG.checkoutUrl) {
     poster.replaceWith(iframe);
   });
 })();
-
-/* ---------- Bônus: inclinação 3D + luz que segue o mouse ---------- */
-(function tilt() {
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !matchMedia("(hover: hover)").matches) return;
-  document.querySelectorAll("[data-tilt]").forEach((card) => {
-    card.addEventListener("pointermove", (e) => {
-      const r = card.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-      card.style.setProperty("--mx", x * 100 + "%");
-      card.style.setProperty("--my", y * 100 + "%");
-      card.style.transform = `rotateX(${(0.5 - y) * 6}deg) rotateY(${(x - 0.5) * 8}deg) translateY(-4px)`;
-    });
-    card.addEventListener("pointerleave", () => { card.style.transform = ""; card.style.setProperty("--my", "0%"); });
-  });
-})();
