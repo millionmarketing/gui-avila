@@ -854,22 +854,21 @@ details.curriculum li::before { content: counter(c, decimal-leading-zero); font:
 
 /* Card Sala VIP (estático, sem animação) */
 .vip {
-  display: grid; grid-template-columns: 320px 1fr; overflow: hidden; border-radius: 22px; border: 1px solid transparent;
+  display: grid; grid-template-columns: 1fr; overflow: hidden; border-radius: 22px; border: 1px solid transparent;
   background:
     linear-gradient(180deg, #15120d, #0b0a08) padding-box,
     linear-gradient(160deg, rgba(248,199,92,.8), rgba(42,39,34,.9) 35%, rgba(42,39,34,.9) 70%, rgba(184,117,25,.7)) border-box;
   box-shadow: 0 30px 70px -35px rgba(0,0,0,.9);
 }
-.vip__photo { position: relative; margin: 0; min-height: 100%; border-right: 1px solid var(--border); }
-.vip__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 20%; }
-.vip__photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(8,7,6,.95) 100%); }
+.vip__photo { position: relative; margin: 0; border-bottom: 1px solid var(--border); background: #000; }
+.vip__photo img { display: block; width: 100%; height: auto; }
 .vip__tag {
-  position: absolute; left: 22px; bottom: 22px; z-index: 1; padding: 8px 13px; border-radius: 999px; background: var(--grad-gold); color: #0a0806;
+  position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%); white-space: nowrap; box-shadow: 0 8px 24px rgba(0,0,0,.6); z-index: 1; padding: 8px 13px; border-radius: 999px; background: var(--grad-gold); color: #0a0806;
   font: 700 12px/1 var(--font-m); letter-spacing: .14em; text-transform: uppercase;
 }
 
 .vip__body { padding: 36px 36px 32px; display: flex; flex-direction: column; justify-content: center; gap: 28px; }
-.vip__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }
+.vip__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .vip__list li { display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start; }
 .vip__ic {
   width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
@@ -891,17 +890,15 @@ details.curriculum li::before { content: counter(c, decimal-leading-zero); font:
 }
 
 @media (max-width: 1024px) {
-  .vip { grid-template-columns: 1fr; max-width: 640px; margin: 0 auto; }
-  .vip__photo { height: 340px; min-height: 0; border-right: 0; border-bottom: 1px solid var(--border); }
-  .vip__photo img { object-position: 70% 25%; }
+  .vip { max-width: 640px; margin: 0 auto; }
+  .vip__list { grid-template-columns: 1fr; gap: 22px; }
 }
 @media (max-width: 768px) {
   .bonus-zone { margin-top: 56px; padding: 30px 14px 14px; border-radius: 24px; }
   .bonus-zone__head { margin-bottom: 26px; }
   .bonus-zone__head h3 { font-size: 27px; }
   .bonus-zone__head p { font-size: 16px; }
-  .vip__photo { height: 300px; }
-  .vip__tag { left: 16px; bottom: 16px; }
+  .vip__tag { font-size: 11px; padding: 7px 11px; }
   .vip__body { padding: 24px 18px 18px; gap: 20px; }
     .vip__list li { grid-template-columns: 40px 1fr; gap: 14px; }
   .vip__ic { width: 40px; height: 40px; }
