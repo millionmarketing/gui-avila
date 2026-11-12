@@ -444,13 +444,16 @@ details.curriculum li::before { content: counter(c, decimal-leading-zero); font:
 }
 .offer-top { padding: 52px 48px 8px; text-align: center; }
 .offer-top h2 { font-size: clamp(30px, 4vw, 44px); margin: 22px 0 8px; }
-.offer-family { position: relative; margin: 30px 32px 0; }
-.offer-family::before {
-  content: ""; position: absolute; left: 10%; right: 10%; top: 18%; bottom: 4%; z-index: -1;
-  background: radial-gradient(ellipse at 50% 55%, rgba(245,185,66,.32), transparent 68%); filter: blur(30px);
+.offer-family { position: relative; margin: 18px 24px 0; }
+/* imagem com fundo preto: as bordas se dissolvem no fundo escuro da caixa */
+.offer-family img {
+  display: block; width: 100%; height: auto; mix-blend-mode: lighten;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent), linear-gradient(180deg, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent), linear-gradient(180deg, transparent, #000 7%, #000 93%, transparent);
+  mask-composite: intersect;
 }
-.offer-family img { display: block; width: 100%; height: auto; filter: drop-shadow(0 24px 40px rgba(0,0,0,.55)); }
-@media (max-width: 768px) { .offer-family { margin: 22px 8px 0; } }
+@media (max-width: 768px) { .offer-family { margin: 14px 0 0; } }
 .stack { margin: 28px 48px 0; border: 1px solid var(--border); border-radius: 18px; overflow: hidden; background: rgba(10,9,8,.7); }
 .stack-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; border-bottom: 1px solid var(--border); }
 .stack-row:last-child { border-bottom: 0; }
